@@ -1,0 +1,14 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index",
+    "i-action-sheet": "../../dist/action-sheet/index",
+    "i-button": "../../dist/button/index",
+    "i-card": "../../dist/card/index",
+    "i-load-more": "../../dist/load-more/index",
+    "i-modal": "../../dist/modal/index",
+    "i-message": "../../dist/message/index",
+    "i-tabs": "../../dist/tabs/index",
+    "i-tab": "../../dist/tab/index"
+  }
+}

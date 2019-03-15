@@ -1,0 +1,68 @@
+/* 搜索框 */
+
+.header {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 8vh;
+  /* border-bottom: 5rpx groove; */
+  overflow: hidden;
+  border: 0;
+  /* border-bottom: 1px solid black; */
+}
+
+.search-location {
+  width: 26vw;
+}
+
+.search-keyword {
+  width: 66vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 2rpx solid #2d8cf0;
+  border-radius: 10rpx;
+  /* box-shadow: 0 10px 5px rgba(0,0,0,.3); */
+}
+
+.search-position {
+  /* color: rgb(76, 167, 79); */
+  font-size: 32rpx;
+}
+
+.search-keyword input {
+  font-size: 32rpx;
+  margin-left: 15rpx;
+  width: 80%;
+}
+
+.search-keyword image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
+  border-radius: 5rpx;
+}
+
+/* 标题栏 */
+
+.body {
+  height: 8vh;
+  /* box-shadow: inset 0px 10px 10px -5px rgba(0, 0, 0, 0.1); */
+}
+
+.footer {
+  height: 83vh;
+  /* border: 1px solid black; */
+}
+
+.item::first {
+  /* border: 1px solid black; */
+}
+
+scroll-view {
+  height: 100%;
+  /* padding-top: 1vh; */
+}

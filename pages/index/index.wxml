@@ -1,0 +1,77 @@
+<view class='container'>
+
+  <view class='header'>
+    <view class='search-location'>
+      <picker mode="multiSelector" bindchange="placeChange" bindcolumnchange="placeColumnChange" range="{{placeArray}}" value="{{placeIndex}}">
+        <view class="search-position">{{placeArray[1][placeIndex[1]]||'按位置查找'}}</view>
+      </picker>
+    </view>
+    <view class='search-keyword'>
+      <input bindblur="inputKeyword" class="search-input" placeholder="输入关键字" type="text" value="{{keyword}}" maxlength='20'></input>
+      <image mode='aspectFill' src='/images/search.png' bindtap='searchKeyword'></image>
+    </view>
+
+  </view>
+
+  <view class='body'>
+    <i-tabs current="{{ index }}" bindchange="indexChange">
+      <i-tab key="lost" title="丢三落四"></i-tab>
+      <i-tab key="found" title="拾金不昧"></i-tab>
+    </i-tabs>
+  </view>
+
+  <view class='footer'>
+
+    <!-- 拾金不昧 -->
+    <scroll-view scroll-y hidden="{{index=='lost'}}" bindscrolltolower="loadAgainFound">
+      <view hidden='{{noData}}'>
+        <i-load-more tip="暂无数据" loading="{{ false }}" />
+      </view>
+      <view class='item' wx:for="{{itemFoundList}}" wx:key='{{item.id}}' hidden='{{hasData}}'>
+        <i-card title="{{item.id}}{{item.title}}" extra="{{item.category}}" full thumb="{{item.img.path ? 'https://www.vincenteliang.cn/storage/'+item.img.path : '/images/noImage.png'}}" bindtap="goToDetail" data-id='{{item.id}}'>
+          <view class='detail' slot="content">{{item.description}}</view>
+          <view slot="footer">
+            <text class='card-footer-left'>{{item.time}}</text>
+            <text class='card-footer-right'>{{item.location}}</text>
+          </view>
+        </i-card>
+      </view>
+      <view hidden='{{loading}}'>
+        <i-load-more />
+      </view>
+      <view hidden='{{noMore}}'>
+        <i-load-more tip="全都加载完啦" loading="{{ false }}" />
+      </view>
+    </scroll-view>
+    <!-- 丢这丢那 -->
+    <scroll-view scroll-y hidden="{{index == 'found'}}" bindscrolltolower="loadAgainLost">
+      <view hidden='{{noData}}'>
+        <i-load-more tip="暂无数据" loading="{{ false }}" />
+      </view>
+      <view class='item' wx:for="{{itemLostList}}" wx:key='{{item.id}}' hidden='{{hasData}}'>
+        <i-card title="{{item.id}}{{item.title}}" extra="{{item.category}}" full thumb="{{item.img.path ? 'https://www.vincenteliang.cn/storage/'+item.img.path : '/images/noImage.png'}}" bindtap="goToDetail" data-id='{{item.id}}'>
+          <view class='detail' slot="content">{{item.description}}</view>
+          <view slot="footer">
+            <text class='card-footer-left'>{{item.time}}</text>
+            <text class='card-footer-right'>{{item.location}}</text>
+          </view>
+        </i-card>
+      </view>
+      <view hidden='{{loading}}'>
+        <i-load-more />
+      </view>
+      <view hidden='{{noMore}}'>
+        <i-load-more tip="全都加载完啦" loading="{{ false }}" />
+      </view>
+    </scroll-view>
+
+  </view>
+
+
+
+  <i-message id="message" />
+  <i-modal visible="{{ visibleNetErrer }}" bind:ok="handleNetErrerClose">
+    <view>网络错误</view>
+  </i-modal>
+
+</view>

@@ -1,0 +1,47 @@
+<view class='container'>
+
+  <view class='header'>
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+  </view>
+
+  <view class='body'>
+
+    <view class='unauthorized' hidden='{{hasApiToken}}'>
+      <i-panel title="请登陆/注册">
+        <i-input value="{{ email }}" title="电子邮箱：" maxlength="25" bind:change="inputEmail" placeholder="仅支持学生邮箱：@xs.ustb.edu.cn" />
+        <i-input value="{{ phone }}" title="联系电话：" maxlength="11" bind:change="inputPhone" placeholder="请输入11位手机号" type="number" />
+        <i-button disabled='{{!isOk}}' bind:click="login" loading="{{login}}" type="primary">登 陆</i-button>
+        <i-button disabled='{{!isOk}}' bind:click="signup" loading="{{signup}}" type="info">注 册</i-button>
+      </i-panel>
+    </view>
+
+    <view class='authorized' hidden='{{!hasApiToken}}'>
+      <i-panel title=" ">
+        <i-cell-group>
+          <i-cell title="我丢失的" is-link url="/pages/other/lost/lost"></i-cell>
+          <i-cell title="我找到的" is-link url="/pages/other/found/found"></i-cell>
+          <i-cell title="免责声明" is-link url="/pages/other/disclaimer/disclaimer"></i-cell>
+          <i-cell title="关于我们" is-link url="/pages/other/aboutUs/aboutUs"></i-cell>
+        </i-cell-group>
+      </i-panel>
+    </view>
+
+  </view>
+
+  <view class='footer'>
+  <view class='image'>
+    <image src='/images/iBeiKe.jpg'></image>
+  </view>
+  </view>
+
+
+  <i-toast id="toast" />
+  <i-message id="message" />
+
+</view>

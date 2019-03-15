@@ -1,0 +1,43 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  /* border: 1px solid black; */
+  overflow: hidden;
+  box-shadow: inset 0px -10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  width: 100%;
+  /* border: 1px solid red; */
+}
+
+.body {
+  width: 100%;
+  /* border: 1px solid yellow; */
+}
+
+.footer {
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+
+.i-card-header-extra {
+  color: #1296db;
+}
+
+.card-footer-left {
+  float: left;
+}
+
+.card-footer-right {
+  float: right;
+}
+
+.item .detail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item {
+  margin-bottom: 20rpx;
+}

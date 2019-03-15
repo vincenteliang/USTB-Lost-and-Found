@@ -1,0 +1,11 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index",
+    "i-input": "../../dist/input/index",
+    "i-radio-group": "../../dist/radio-group/index",
+    "i-radio": "../../dist/radio/index",
+    "i-message": "../../dist/message/index",
+    "i-button": "../../dist/button/index"
+  }
+}

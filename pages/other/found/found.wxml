@@ -1,0 +1,9 @@
+<view class='item' wx:for="{{itemList}}" wx:key='{{item.id}}' hidden='{{hasData}}'>
+  <i-card title="{{item.id}}{{item.title}}" extra="{{item.category}}" full thumb="{{item.img.path ? 'https://www.vincenteliang.cn/storage/'+item.img.path : '/images/noImage.png'}}" bindtap="goToDetail" data-id='{{item.id}}'>
+    <view class='detail' slot="content">{{item.description}}</view>
+    <view slot="footer">
+      <text class='card-footer-left'>{{item.time}}</text>
+      <text class='card-footer-right'>{{item.location}}</text>
+    </view>
+  </i-card>
+</view>

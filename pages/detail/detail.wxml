@@ -1,0 +1,26 @@
+<view class='container'>
+
+  <view class='header'>
+    <swiper indicator-dots='true' indicator-active-color='white' autoplay='true' interval='3000'>
+      <swiper-item wx:for="{{images}}">
+        <image mode='aspectFill' src="{{item.path ? 'https://www.vincenteliang.cn/storage/'+item.path : '/images/noImage.png'}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class='body'>
+    <i-cell-group>
+      <i-cell title="标题" value="{{title}}"></i-cell>
+      <i-cell title="时间" value="{{date}}"></i-cell>
+      <i-cell title="联系方式" value="{{phone}}"></i-cell>
+    </i-cell-group>
+    <view>
+      <text>{{detail}}</text>
+    </view>
+  </view>
+
+  <view class='footer'>
+    <i-button catchtap="upLoadForm" disabled="{{!owner}}" type="info">标 记 已 解 决</i-button>
+  </view>
+
+</view>
